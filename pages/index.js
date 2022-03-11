@@ -19,8 +19,6 @@ function Home() {
     { value: "Uncompleted", label: "Uncompleted", count: active },
   ];
 
-  console.log(todoList);
-
   useEffect(() => {
     localStorage.getItem("todos");
     localStorage.setItem("todos", JSON.stringify(todoList));
