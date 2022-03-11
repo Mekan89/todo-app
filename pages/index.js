@@ -8,7 +8,7 @@ import { todoListState, filteredTodoListState, filterState, todoListStatsState }
 import { Box } from "@mui/system";
 
 function Home() {
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const todoList = useRecoilValue(todoListState);
   const filteredTodoList = useRecoilValue(filteredTodoListState);
   const { active, completed, total } = useRecoilValue(todoListStatsState);
   const [currentTab, setCurrentTab] = useRecoilState(filterState);
@@ -19,12 +19,10 @@ function Home() {
     { value: "Uncompleted", label: "Uncompleted", count: active },
   ];
 
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("todos")) || [];
-    setTodoList(data);
-  }, []);
+  console.log(todoList);
 
   useEffect(() => {
+    localStorage.getItem("todos");
     localStorage.setItem("todos", JSON.stringify(todoList));
   }, [todoList]);
 
