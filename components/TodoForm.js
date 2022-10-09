@@ -9,8 +9,8 @@ export const TodoForm = () => {
   const setAddTodo = useSetRecoilState(addTodo);
 
   const handleSubmit = e => {
+    e.preventDefault();
     if(e.target.value.trim()!=="") {
-      e.preventDefault();
       setAddTodo({ id: Date.now(), fields: { description: input, completed: false } });
       setInput("");
     }
