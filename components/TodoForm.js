@@ -10,7 +10,7 @@ export const TodoForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(e.target.value.trim()!=="") {
+    if(input.trim()!=="") {
       setAddTodo({ id: Date.now(), fields: { description: input, completed: false } });
       setInput("");
     }
