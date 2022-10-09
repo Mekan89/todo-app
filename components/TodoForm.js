@@ -27,7 +27,7 @@ export const TodoForm = () => {
         label="Enter Todo"
         name="todo"
         value={input}
-        onChange={event => setInput(event.target.value)}
+        onChange={event => setInput(event.target.value.trim())}
         InputProps={{
           endAdornment: (
             <IconButton color="primary" disabled={!input.trim()}>
