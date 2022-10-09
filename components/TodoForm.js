@@ -9,9 +9,11 @@ export const TodoForm = () => {
   const setAddTodo = useSetRecoilState(addTodo);
 
   const handleSubmit = e => {
-    e.preventDefault();
-    setAddTodo({ id: Date.now(), fields: { description: input, completed: false } });
-    setInput("");
+    if(e.target.value.trim()!=="") {
+      e.preventDefault();
+      setAddTodo({ id: Date.now(), fields: { description: input, completed: false } });
+      setInput("");
+    }
   };
 
   return (
@@ -27,7 +29,7 @@ export const TodoForm = () => {
         label="Enter Todo"
         name="todo"
         value={input}
-        onChange={event => setInput(event.target.value.trim())}
+        onChange={event => setInput(event.target.value)}
         InputProps={{
           endAdornment: (
             <IconButton color="primary" disabled={!input.trim()}>
